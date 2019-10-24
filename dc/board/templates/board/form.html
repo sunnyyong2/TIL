@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+{% comment %}
+- DTL 주석
+DTL if문
+{% if 조건식1 %}
+{% elif 조건식2 %}
+{% else %}
+{% endif %}
+이런 식으로 html 태그 내부에서도 활용 가능
+{% endcomment %}
+
+<form action="" method='post'>
+  {% comment %}
+  "{% url '앱이름:path설정이름' 변수이름1, 변수이름2, ...%}"
+  form 가져오기
+  {% endcomment %}
+
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value="제출">
+</form>
+
+
+{% endblock %}

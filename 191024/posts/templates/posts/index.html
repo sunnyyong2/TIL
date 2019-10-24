@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+  {% for post in posts %}
+    {% comment %}
+    # 여기 뭐 나와야해?
+    # posts:detail의 posts는 urls.py의 app_name!
+    {% endcomment %}
+    <a href="{% url 'posts:detail' post.id %}">
+      {{post.title}}
+      {{post.content}}
+      <input type="submit" value="등록">
+    </a>
+
+    <a href="{% url 'posts:delete' post.id %}">
+      <input type="submit" value="삭제">
+    </a>
+
+  {% endfor %}
+{% endblock %}

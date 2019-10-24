@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block body %}
+
+{{posts.title}}
+{{posts.content}}
+
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="삭제">
+</form>
+{% endblock %}

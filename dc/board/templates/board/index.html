@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+{% if user.is_authenticated %}
+{{user.username}}
+<a href="{% url 'accounts:logout' %}">
+  로그아웃
+</a>
+{% else %}
+{% endif %}
+
+{% for board in boards %}
+<a href="{% url 'board:detail' board.id %}">
+
+  {{board.title}}</a>
+{{board.content}}
+{% if user in board.like_users.all %}
+<a href="{% url 'board:like' board.id %}">
+  좋아요 취소
+</a>
+{% else %}
+<a href="{% url 'board:like' board.id %}">
+  좋아요
+</a>
+{% endif %}
+{% endfor %}
+{% endblock %}
